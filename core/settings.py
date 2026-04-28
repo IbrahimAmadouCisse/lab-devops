@@ -10,6 +10,27 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+
+import sentry_sdk
+
+from sentry_sdk.integrations.django import DjangoIntegration
+
+ 
+
+sentry_sdk.init(
+
+    dsn="votre-dsn",  # Remplacez par le DSN copié depuis Sentry
+
+    integrations=[DjangoIntegration()],
+
+    traces_sample_rate=1.0,  # Ajustez le taux de collecte des traces
+
+    send_default_pii=True
+
+)
+
+
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
